@@ -1,26 +1,26 @@
-const writer = (message, number)=>{
-    let ele = document.createElement("div");
-    let sum = 5+number;
-    ele.innerHtml=message+" so many times "+sum;
-    document.body.querySelector(".box").appendChild(ele);
+let animals = ["dog", "fish", "cat", "shark", "cat", "dog"];
+
+for(let i=0;i<animals.length; i++) if (animals[i] === "cat") {
+    document.write("I am a cat");
+    document.write("<br/>");
+
+} else if (animals[i] === "dog") {
+    document.write("borf borf");
+    document.write("<br/>");
+
+} else {
+    document.write("I'm an animal");
+    document.write("<br/>");
 }
-let message=prompt("Are you ready to begin?");
-let milesPerYear = Number(prompt("Enter the number of miles per year:"));
-let costPerGallon = Number(prompt("Enter the cost of gallon"));
 
-function yearlyCost(miles, cost, rating){
-
-    return (miles*cost)/rating;
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Scramble";
+    const animals = [
+        {type: "dog"},
+        {type: "fish"},
+        {type: "cat"}
+        {type: "shark"}
+        {type: "cat"}
+        {type: "dog"}
+    ];
 }
-
-document.write("To drive a car with a MPG rating of 12 for "+milesPerYear+" at $"+costPerGallon+" per gallon would cost $"+yearlyCost(milesPerYear, costPerGallon, 12));
-document.write("<br>To drive a car with a MPG rating of 17 for "+milesPerYear+" at $"+costPerGallon+" per gallon would cost $"+yearlyCost(milesPerYear, costPerGallon, 17));
-document.write("<br>To drive a car with a MPG rating of 26 for "+milesPerYear+" at $"+costPerGallon+" per gallon would cost $"+yearlyCost(milesPerYear, costPerGallon, 26));
-document.write("<br>To drive a car with a MPG rating of 29 for "+milesPerYear+" at $"+costPerGallon+" per gallon would cost $"+yearlyCost(milesPerYear, costPerGallon, 29));
-
-document.getElementById("reset").onclick = function() {
-    document.getElementById("number").value = "Would you like to try again?";
-};
-writer(message, milesPerYear);
-writer(message, costPerGallon);
-
