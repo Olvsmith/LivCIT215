@@ -1,31 +1,36 @@
-.character{
-    height:150px;
-    width:200px;
-    border-radius:10px;
-    margin-bottom:10px;
-    color:white;
-    box-sizing:border-box;
-    padding:8px;
-    position:relative;
+.characters {
+  display: flex;
 }
 
-.character div{
-    margin-bottom:10px;
+.character {
+  height: 150px;
+  width: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: white;
+  box-sizing: border-box;
+  padding: 8px;
+  position: relative;
+  margin: 10px;
 }
 
-.autobot{
-    background-color:red;
-    border:1px solid #991f00;
+.character div {
+  margin-bottom: 10px;
 }
 
-.decepticon{
-    background-color:#660066;
-    border:1px solid #330033;
+.autobot {
+  background-color: red;
+  border: 1px solid #991f00;
 }
 
-img{
-    height:40px;
-    position:absolute;
-    top:2px;
-    right:2px;
+.decepticon {
+  background-color: #660066;
+  border: 1px solid #330033;
+}
+
+img {
+  height: 40px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
 }
