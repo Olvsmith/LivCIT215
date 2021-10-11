@@ -1,36 +1,62 @@
-.characters {
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
   display: flex;
 }
 
-.character {
-  height: 150px;
+.popUp {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(193, 193, 193, 0.66);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.popUp.hidden {
+  display: none;
+}
+
+.popUp img {
+  height: 100px;
+}
+
+.product {
+  height: 200px;
   width: 200px;
   border-radius: 10px;
-  margin-bottom: 10px;
-  color: white;
-  box-sizing: border-box;
-  padding: 8px;
-  position: relative;
-  margin: 10px;
+  border: 2px solid black;
+  box-shadow: 2px 2px 2px black;
+  margin-top: 10px;
+  margin-left: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.character div {
-  margin-bottom: 10px;
+.product.red:hover {
+  border: 2px solid red;
+}
+.product.gold:hover {
+  border: 2px solid gold;
+}
+.product.orange:hover {
+  border: 2px solid orange;
 }
 
-.autobot {
-  background-color: red;
-  border: 1px solid #991f00;
-}
-
-.decepticon {
-  background-color: #660066;
-  border: 1px solid #330033;
-}
-
-img {
-  height: 40px;
-  position: absolute;
-  top: 2px;
-  right: 2px;
+.product img {
+  height: 100px;
 }

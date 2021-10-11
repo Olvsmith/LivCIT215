@@ -1,45 +1,60 @@
-let boxes = [];
-let array = [
-  { counter: 0, color: "blue" },
-  { counter: 0, color: "red" },
-  { counter: 0, color: "green" },
+var products = [
+  {
+    id: 0,
+    name: "Apples",
+    price: "2.99",
+    image:
+      "https://banner2.kisspng.com/20180310/jyw/kisspng-plum-tomato-apple-fuji-vector-two-apples-5aa49732abbf96.2950483615207360507035.jpg",
+    color: "red",
+  },
+  {
+    id: 1,
+    name: "Bananas",
+    price: "2.50",
+    image:
+      "https://icon2.kisspng.com/20180125/cyq/kisspng-banana-powder-fruit-cavendish-banana-banana-5a6a705e555d06.3110857015169250223497.jpg",
+    color: "gold",
+  },
+  {
+    id: 2,
+    name: "Oranges",
+    price: "3.50",
+    image:
+      "https://icon2.kisspng.com/20180308/wlw/kisspng-south-africa-blood-orange-mandarin-orange-tangelo-south-africa-imports-of-oranges-5aa10d936cc6c7.6226563815205042114456.jpg",
+    color: "orange",
+  },
 ];
 
-function Box(button) {
-  const _self = this;
+const popUp = document.body.querySelector(".popUp");
+popUp.addEventListener("click", () => {
+  popUp.className = "popUp hidden";
+});
 
-  _self.counter = button.counter;
-  _self.color = button.color;
+const init = () => {
+  products.map((ob, idx) => {
+    let html,
+      product = document.createElement("div");
+    product.className = `product ${ob.color}`;
 
-  _self.ele = document.createElement("div");
-  _self.ele.style.backgroundColor = this.color;
-  _self.ele.style.justifyContent = "center";
-  _self.ele.style.cursor = "pointer";
-  _self.ele.style.alignItems = "center";
-  _self.ele.style.borderRadius = "10px";
-  _self.ele.style.color = "white";
-  _self.ele.style.fontSize = "32px";
-  _self.ele.style.fontWeight = "bold";
-  _self.ele.style.textAlign = "center";
-  _self.ele.style.display = "flex";
-  _self.ele.style.margin = "auto 0";
-  _self.ele.style.height = "100px";
-  _self.ele.style.width = "200px";
+    html = `
+        <img src="${ob.image}" alt="${ob.name}" />
+        <div>
+            Product: ${ob.name}
+        </div>
+        <div>
+            Price: $${ob.price}
+        </div>
+    `;
 
-  _self.ele.innerHTML = this.counter;
+    product.innerHTML = html;
 
-  _self.ele.addEventListener("click", function () {
-    _self.increaseNumber();
+    product.addEventListener("click", (event) => {
+      popUp.innerHTML = html;
+      popUp.className = "popUp";
+    });
+
+    document.body.appendChild(product);
   });
-
-  document.body.appendChild(this.ele);
-}
-
-Box.prototype.increaseNumber = function () {
-  this.counter = this.counter + 1;
-  this.ele.innerHTML = this.counter;
 };
 
-for (let i = 0; i < array.length; i++) {
-  boxes.push(new Box(array[i]));
-}
+init();
