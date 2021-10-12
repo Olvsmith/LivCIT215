@@ -9,54 +9,15 @@ body {
 
 body {
   display: flex;
-}
-
-.popUp {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(193, 193, 193, 0.66);
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.popUp.hidden {
-  display: none;
 }
 
-.popUp img {
-  height: 100px;
-}
-
-.product {
-  height: 200px;
-  width: 200px;
-  border-radius: 10px;
-  border: 2px solid black;
-  box-shadow: 2px 2px 2px black;
-  margin-top: 10px;
-  margin-left: 8px;
+.message {
+  margin: 10px 0;
+  display: block;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  color: black;
 }
-
-.product.red:hover {
-  border: 2px solid red;
-}
-.product.gold:hover {
-  border: 2px solid gold;
-}
-.product.orange:hover {
-  border: 2px solid orange;
-}
-
-.product img {
-  height: 100px;
+.message.clicked {
+  color: blue;
 }
