@@ -2,10 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Array Loops</title>
+    <title>Cards</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.min.js"></script>
   </head>
   <body>
+    <div id="destiny-app">
+      <div
+        v-for="card in cards"
+        class="card"
+        :class="card.color"
+        :key="card.name"
+      >
+        <img :src="card.img" :alt="card.name" />
+        <div class="health">{{ card.health }}</div>
+        <div
+          class="rarity"
+          :class="{'rare': card.rarity, 'legendary': !card.rarity}"
+        >
+          {{ card.rarity ? 'Rare' : 'Legendary'}}
+        </div>
+        <div class="name">{{card.name}}</div>
+        <div class="affl" :class="card.affl">{{card.affl}}</div>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>

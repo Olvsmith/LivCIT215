@@ -1,23 +1,118 @@
-* {
-  margin: 0;
-}
-
 html,
-body {
-  height: 100%;
-}
-
-body {
+body,
+#destiny-app {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
 }
 
-.message {
-  margin: 10px 0;
-  display: block;
-  cursor: pointer;
+.card {
+  height: 350px;
+  width: 250px;
+  border: solid 1px black;
+  position: relative;
+  font-family: Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-right: 18px;
+}
+
+img {
+  height: 230px;
+}
+
+.blue {
+  background-color: blue;
+  border: 2px blue solid;
+}
+
+.red {
+  background-color: red;
+  border: 2px red solid;
+}
+
+.yellow {
+  background-color: yellow;
+  border: 2px yellow solid;
+}
+
+.gray {
+  background-color: gray;
+  border: 2px gray solid;
+}
+
+.rarity {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 40px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rare {
+  background-color: cyan;
   color: black;
 }
-.message.clicked {
-  color: blue;
+
+.legendary {
+  background-color: purple;
+  color: black;
+}
+
+.health {
+  border-radius: 60px;
+  height: 60px;
+  width: 60px;
+  background-color: crimson;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 36px;
+  top: 0;
+  right: 0;
+}
+
+.name {
+  height: 50px;
+  width: 160px;
+  background-color: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.affl {
+  height: 40px;
+  width: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  background-color: white;
+  color: black;
+}
+
+.villain {
+  background-color: black;
+  color: white;
+}
+
+.neutral {
+  background-color: gray;
+  color: black;
 }
