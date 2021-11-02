@@ -2,30 +2,66 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Cards</title>
+    <title>Flipping Cards</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.min.js"></script>
   </head>
   <body>
-    <div id="destiny-app">
-      <div
-        v-for="card in cards"
-        class="card"
-        :class="card.color"
-        :key="card.name"
-      >
-        <img :src="card.img" :alt="card.name" />
-        <div class="health">{{ card.health }}</div>
-        <div
-          class="rarity"
-          :class="{'rare': card.rarity, 'legendary': !card.rarity}"
-        >
-          {{ card.rarity ? 'Rare' : 'Legendary'}}
+    <div id="flashcards-app">
+      <form class="form" @submit="submitForm">
+        <h2>Flash Card Form</h2>
+        <div class="form-inputs">
+          <input
+            class="inputs block"
+            type="text"
+            placeholder="The Question"
+            v-model="form.question"
+          />
+          <input
+            class="inputs block"
+            type="text"
+            placeholder="The Answer"
+            v-model="form.answer"
+          />
+          <div id="cateogry">
+            <h4 style="margin: 6px 0">Category:</h4>
+            <input
+              type="radio"
+              id="one"
+              value="history"
+              v-model="form.category"
+            />
+            <label for="one">History</label>
+            <br />
+            <input type="radio" id="two" value="math" v-model="form.category" />
+            <label for="two">Math</label>
+            <br />
+            <input
+              type="radio"
+              id="three"
+              value="science"
+              v-model="form.category"
+            />
+            <label for="three">Science</label>
+          </div>
+
+          <button class="btn" type="submit">Add to list</button>
         </div>
-        <div class="name">{{card.name}}</div>
-        <div class="affl" :class="card.affl">{{card.affl}}</div>
+      </form>
+      <div v-for="(card, idx) in cards" class="card" @click="flip(idx)">
+        <div class="top" :class="card.category">{{card.category}}</div>
+        <div class="side1" :class="{ 'hide': card.flipped}">
+          <h1>Question:</h1>
+          <h3>{{card.question}}</h3>
+        </div>
+        <div class="side2" :class="{ 'hide': !card.flipped}">
+          <h1>Answer:</h1>
+          <h3>{{card.answer}}</h3>
+        </div>
       </div>
     </div>
+
     <script src="app.js"></script>
   </body>
 </html>
