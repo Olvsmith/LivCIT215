@@ -1,12 +1,7 @@
-#flashcards-app {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .form {
   display: flex;
   flex-direction: column;
-  margin: 0 20px 20px 20px;
+  margin-bottom: 20px;
 }
 
 .block {
@@ -18,87 +13,4 @@
   border: 1px solid #dddd;
   border-radius: 5px;
   margin-bottom: 6px;
-}
-
-.btn {
-  cursor: pointer;
-  margin-top: 12px;
-  font-size: 18px;
-  background: green;
-  color: white;
-  padding: 5px 22px;
-  border: 1px solid #dddd;
-  border-radius: 5px;
-  margin-bottom: 6px;
-  opacity: 1;
-}
-.btn:hover {
-  opacity: 0.85;
-}
-
-.card {
-  height: 350px;
-  width: 250px;
-  position: relative;
-  font-family: Roboto, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.5) 4px 4px 16px;
-  overflow: hidden;
-  margin-left: 20px;
-  cursor: pointer;
-}
-
-.card h1 {
-  padding: 0 16px;
-}
-
-.top {
-  height: 40px;
-  width: 100%;
-  border-bottom: solid 2px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: capitalize;
-  text-align: center;
-}
-
-.side1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  text-align: center;
-}
-
-.side2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  text-align: center;
-}
-
-.hide {
-  display: none;
-}
-
-.history {
-  border-color: purple;
-}
-
-.math {
-  border-color: red;
-}
-
-.science {
-  border-color: green;
 }

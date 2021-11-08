@@ -1,56 +1,80 @@
-const flashcards = {
+const app = Vue.createApp({
   data() {
     return {
-      cards: [
-        {
-          question: "What year was IUPUI founded?",
-          answer: "1969",
-          category: "history",
-          flipped: false,
-        },
-        {
-          question: "What is 2+2?",
-          answer: "4",
-          category: "math",
-          flipped: false,
-        },
-        {
-          question: "Is mayonnaise an instrument?",
-          answer: "No",
-          category: "science",
-          flipped: false,
-        },
+      msg: "",
+      codenames: [
+        { name: "Protagonist", codename: "Joker" },
+        { name: "Anne", codename: "Panther" },
+        { name: "Ryuji", codename: "Skull" },
       ],
       form: {
-        question: "",
-        answer: "",
-        category: "history",
+        name: "",
+        email: "",
       },
     };
   },
-  methods: {
-    flip(idx) {
-      this.cards[idx].flipped = !this.cards[idx].flipped;
+  computed: {
+    isNameValid() {
+      return this.form.name.length > 2;
     },
-    submitForm(e) {
-      e.preventDefault();
+    isEmailValid() {
+      const r =
+        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-      // Push the new card from form.
-      this.cards.push({
-        question: this.form.question,
-        answer: this.form.answer,
-        category: this.form.category,
-        flipped: false,
-      });
+      return r.test(this.form.email.toLowerCase());
+    },
+    isBothValid() {
+      if (this.isNameValid && this.isEmailValid) {
+        return true;
+      }
 
-      // Reset form after submit
-      this.form = {
-        question: "",
-        answer: "",
-        category: "history",
-      };
+      return false;
     },
   },
-};
+  watch: {
+    "form.name": {
+      handler() {
+        if (!this.isNameValid) {
+          this.msg = "The name field has to be greater than 2 characters.";
+          return;
+        }
 
-Vue.createApp(flashcards).mount("#flashcards-app");
+        this.msg = "";
+      },
+    },
+    "form.email": {
+      handler(val) {
+        if (!this.isEmailValid) {
+          this.msg =
+            "The email is not valid please type something like sample@example.com";
+          return;
+        }
+
+        this.msg = "";
+      },
+    },
+  },
+});
+
+app.component("CodeName", {
+  props: {
+    codeName: Object,
+  },
+  data() {
+    return {
+      isCodeNameActive: false,
+    };
+  },
+  methods: {
+    activateCodeName() {
+      this.isCodeNameActive = !this.isCodeNameActive;
+    },
+  },
+  template: `
+    <div @click="activateCodeName">
+      {{ isCodeNameActive ? this.codeName.codename : this.codeName.name}}
+    </div>
+  `,
+});
+
+app.mount("#app");

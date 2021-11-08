@@ -2,63 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Flipping Cards</title>
+    <title>Validation / Code Names</title>
 
     <script src="https://unpkg.com/vue@next"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="flashcards-app">
-      <form class="form" @submit="submitForm">
-        <h2>Flash Card Form</h2>
+    <div id="app">
+      <form class="form">
         <div class="form-inputs">
           <input
             class="inputs block"
             type="text"
-            placeholder="The Question"
-            v-model="form.question"
+            placeholder="Name"
+            v-model="form.name"
           />
           <input
             class="inputs block"
             type="text"
-            placeholder="The Answer"
-            v-model="form.answer"
+            placeholder="Email"
+            v-model="form.email"
           />
-          <div id="cateogry">
-            <h4 style="margin: 6px 0">Category:</h4>
-            <input
-              type="radio"
-              id="one"
-              value="history"
-              v-model="form.category"
-            />
-            <label for="one">History</label>
-            <br />
-            <input type="radio" id="two" value="math" v-model="form.category" />
-            <label for="two">Math</label>
-            <br />
-            <input
-              type="radio"
-              id="three"
-              value="science"
-              v-model="form.category"
-            />
-            <label for="three">Science</label>
-          </div>
-
-          <button class="btn" type="submit">Add to list</button>
+          <div>{{ !isBothValid ? msg : "Submitted!" }}</div>
         </div>
       </form>
-      <div v-for="(card, idx) in cards" class="card" @click="flip(idx)">
-        <div class="top" :class="card.category">{{card.category}}</div>
-        <div class="side1" :class="{ 'hide': card.flipped}">
-          <h1>Question:</h1>
-          <h3>{{card.question}}</h3>
-        </div>
-        <div class="side2" :class="{ 'hide': !card.flipped}">
-          <h1>Answer:</h1>
-          <h3>{{card.answer}}</h3>
-        </div>
+      <div v-for="(codename, idx) in codenames">
+        <code-name :code-name="codename" />
       </div>
     </div>
 
